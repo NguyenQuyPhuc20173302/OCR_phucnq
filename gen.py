@@ -10,7 +10,7 @@ import os
 f = open('data_word_new.txt', 'r')
 data_ = f.read()
 
-data_txt = open('/content/data_line/data.txt', 'w')
+data_txt = open('data_line/data.txt', 'w')
 
 # đưa dữ liệu vào list
 data_ = data_.split('\n')
@@ -34,9 +34,9 @@ def gen_one_word(kind_of_font, count, anh_nen, color_word):
         font = ImageFont.truetype(kind_of_font, 40)
         draw.text((0, 7), data, color_word, font=font)
         # tạo name theo count
-        name_image = '/content/data_line/InkData_line_processed/' + str(count) + '.png'
+        name_image = 'data_line/InkData_line_processed/' + str(count) + '.png'
         print(name_image)
-        txt = '/content/data_line/InkData_line_processed/' + str(count) + '.png\t' + data +'\n'
+        txt = 'data_line/InkData_line_processed/' + str(count) + '.png\t' + data +'\n'
         # lưu dữ liệu
         img.save(name_image)
         data_txt.write(txt)
@@ -56,15 +56,15 @@ data_txt.close()
 
 # chia du lieu
 import  numpy as np
-f = open('/content/data_line/data.txt', 'r')
+f = open('data_line/data.txt', 'r')
 data = f.read()
 data = data.split('\n')
 data = np.array(data)
 y = np.array(data)
 from sklearn.model_selection import train_test_split
 data_train, data_vali, y_train, y_test = train_test_split(data, y, test_size=0.2, random_state=42)
-train = open('/content/data_line/train_line_annotation.txt', 'w')
-vali = open('/content/data_line/test_line_annotation.txt', 'w')
+train = open('data_line/train_line_annotation.txt', 'w')
+vali = open('/ata_line/test_line_annotation.txt', 'w')
 
 for i in data_train:
     train.write(i + '\n')
